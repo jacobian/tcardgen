@@ -63,7 +63,7 @@ func parseFrontMatter(r io.Reader) (*FrontMatter, error) {
 		fm.Category = ""
 	}
 	if fm.Tags, err = getAllStringItems(&cfm, fmTags); err != nil {
-		return nil, err
+		fm.Tags = nil
 	}
 	if fm.Date, err = getContentDate(&cfm); err != nil {
 		return nil, err
