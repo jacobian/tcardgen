@@ -195,8 +195,14 @@ func generateTCard(contentPath, outPath string, tpl image.Image, ffa *fontfamily
 	); err != nil {
 		return err
 	}
+
+	author := fm.Author
+	if author == "" {
+		author = "Jacob Kaplan-Moss" // FIXME: pull from config
+	}
+
 	if err := c.DrawTextAtPoint(
-		fmt.Sprintf("%s・%s", fm.Author, fm.Date.Format("Jan 2")),
+		fmt.Sprintf("%s // %s", author, fm.Date.Format("Jan 2")),
 		*cnf.Info.Start,
 		canvas.FgHexColor(cnf.Info.FgHexColor),
 		canvas.FontFaceFromFFA(ffa, cnf.Info.FontStyle, cnf.Info.FontSize),

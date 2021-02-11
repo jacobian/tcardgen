@@ -51,11 +51,11 @@ func parseFrontMatter(r io.Reader) (*FrontMatter, error) {
 	}
 	if isArray := isArray(&cfm, fmAuthor); isArray {
 		if fm.Author, err = getFirstStringItem(&cfm, fmAuthor); err != nil {
-			return nil, err
+			fm.Author = ""
 		}
 	} else {
 		if fm.Author, err = getString(&cfm, fmAuthor); err != nil {
-			return nil, err
+			fm.Author = ""
 		}
 	}
 	if fm.Category, err = getFirstStringItem(&cfm, fmCategories); err != nil {
