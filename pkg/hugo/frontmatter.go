@@ -6,6 +6,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/araddon/dateparse"
 	"github.com/gohugoio/hugo/parser/pageparser"
 )
 
@@ -93,7 +94,7 @@ func getTime(cfm *pageparser.ContentFrontMatter, fmKey string) (time.Time, error
 	}
 	switch t := v.(type) {
 	case string:
-		return time.Parse(time.RFC3339, t)
+		return dateparse.ParseAny(t)
 	case time.Time:
 		return t, nil
 	default:
