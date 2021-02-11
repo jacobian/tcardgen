@@ -6,11 +6,16 @@ import (
 )
 
 type DrawingConfig struct {
-	Template string               `json:"template,omitempty"`
-	Title    *MultiLineTextOption `json:"title,omitempty"`
-	Category *TextOption          `json:"category,omitempty"`
-	Info     *TextOption          `json:"info,omitempty"`
-	Tags     *BoxTextsOption      `json:"tags,omitempty"`
+	Template        string               `json:"template,omitempty"`
+	DefaultMetadata *DefaultMetadata     `json:"defaults,omitempty"`
+	Title           *MultiLineTextOption `json:"title,omitempty"`
+	Category        *TextOption          `json:"category,omitempty"`
+	Info            *TextOption          `json:"info,omitempty"`
+	Tags            *BoxTextsOption      `json:"tags,omitempty"`
+}
+
+type DefaultMetadata struct {
+	Author string `json:"author,omitempty"`
 }
 
 type TextOption struct {

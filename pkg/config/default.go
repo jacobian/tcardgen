@@ -42,6 +42,9 @@ var defaultCnf = DrawingConfig{
 		BoxSpacing: ptrInt(6),
 		BoxAlign:   box.AlignRight,
 	},
+	DefaultMetadata: &DefaultMetadata{
+		Author: "",
+	},
 }
 
 func Defaulting(cnf *DrawingConfig, tplImg string) {

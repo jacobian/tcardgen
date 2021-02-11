@@ -198,7 +198,7 @@ func generateTCard(contentPath, outPath string, tpl image.Image, ffa *fontfamily
 
 	author := fm.Author
 	if author == "" {
-		author = "Jacob Kaplan-Moss" // FIXME: pull from config
+		author = cnf.DefaultMetadata.Author
 	}
 
 	if err := c.DrawTextAtPoint(
