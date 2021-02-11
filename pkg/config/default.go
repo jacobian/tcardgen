@@ -35,7 +35,7 @@ var defaultCnf = DrawingConfig{
 			Start:      &Point{X: 1025, Y: 451},
 			FgHexColor: "#FFFFFF",
 			FontSize:   22,
-			FontStyle:  fontfamily.Medium,
+			FontStyle:  fontfamily.Regular,
 		},
 		BgHexColor: "#60BCE0",
 		BoxPadding: &Padding{Top: 6, Right: 10, Bottom: 6, Left: 10},
