@@ -1,4 +1,4 @@
-module github.com/Ladicle/tcardgen
+module github.com/jacobian/tcardgen
 
 go 1.14
 
