@@ -144,7 +144,11 @@ func (o *RootCommandOption) Run(streams IOStreams) error {
 		out := filepath.Join(outDir, outFilename)
 		if outFilename == "" {
 			base := filepath.Base(f)
-			out += fmt.Sprintf("/%s.png", base[:len(base)-len(filepath.Ext(base))])
+			stem := base[:len(base)-len(filepath.Ext(base))]
+			if stem == "index" || stem == "_index" {
+				stem = filepath.Base(filepath.Dir(f))
+			}
+			out += fmt.Sprintf("/%s.png", stem)
 		}
 
 		if err := generateTCard(f, out, tpl, ffa, cnf); err != nil {
